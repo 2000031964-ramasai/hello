@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+<style >
+  body{
+     background-color: 	#374F6D;
+
+
+  }
+/*not tslider */
+.fullcardslider .row.g-0 {
+  background-color: #90EE90;
+  color: red;
+}
+
+.fullcardslider .row.g-0 {
+  max-width: 2000px;
+  margin: auto;
+  display: flex !important;
+  align-items: center;
+}
+
+
+</style>
+
+</head>
+
+ <!-- fullslider -->
+  <div
+    class="container-flude fullcardslider1 d-flex justify-content-center mt-5"
+  >
+    <div
+
+      class="carousel slide"
+      data-bs-ride="carousel"
+       style="margin-top:100px;"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <div class="card" style="max-width: 1264px">
+            <div class="row g-0">
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold display-4">
+                    Agriculture
+                  </h5>
+                  <hr
+                    class="fw-bold"
+                    style="width: 150px; height: 3px; color: red"
+                  />
+
+                  <p class="card-text" style="color: black; font-size: 16px">
+                    Agriculture is the backbone of India. India is the second largest producer of wheat and rice, and many more.
+                    Agriculture is the main revenue for our country. Now a days Agriculture rate is decreasing day by day due to weather imbalance and
+                    no sufficient rains. To overcome these issues many new technologies came in to the market. Agriculture is the primary source of
+                    livelihood for about 58% of India's population. Agriculture is a very important sector in our country as it is providing
+                    the employment to the half of the Indian’s. Agriculture contributes 17% of India’s GDP.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <img
+                  src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YWdyaWN1bHR1cmV8ZW58MHx8MHx8&w=1000&q=80"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+         </div>
+       </div>
+
+
+<div
+    class="container-flude fullcardslider1 d-flex justify-content-center mt-5" style="margin-bottom:50px;"
+  >
+    <div
+      id="carouselExampleInterval"
+      class="carousel slide"
+      data-bs-ride="carousel"
+
+    >
+      <div class="carousel-inner" style="margin-top:100px;">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <div class="card" style="max-width: 1264px">
+            <div class="row g-0">
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold display-4">
+                    Aquaculture
+                  </h5>
+                  <hr
+                    class="fw-bold"
+                    style="width: 150px; height: 3px; color: red"
+                  />
+
+                  <p class="card-text" style="color: black; font-size: 16px">
+                    In the world, India is the 2nd largest country in producing of fishes  and about 68% of
+                    India's fish comes from the aquaculture sector. Basically, Aquaculture is the farming in the water.
+                    Majorly, atmosphere conditions, water conditions, feeding play crucial role in aquaculture.
+                    The production of different varieties will depend on the marketing conditions.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <img
+                  src="https://www.aquaculturealliance.org/wp-content/uploads/2018/12/Thai-prawn-farm_SS_1500-1024x767.jpg"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+         </div>
+       </div>
+{% endblock %}

@@ -1,0 +1,98 @@
+
+{% load static %}
+{% block content %}
+<head>
+    <style>
+    #bg{
+ background-repeat:no-repeat;
+ background-size:100%;
+
+}
+body.reg{
+    margin: 0;
+    padding: 0;
+    background: url(reg.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+
+
+div.reg-box{
+
+    width: 450px;
+    height: 650px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+
+}
+.reg-box  p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.reg-box  input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.reg-box input[type="text"], input[type="password"],input[type="email"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.reg-box input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1c8adb;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.reg-box  input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #39dc79;
+    color: #000;
+}
+.reg-box   a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+}
+.reg-box   a:hover
+{
+    color: #39dc79;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body class="reg" style="background-image:url('{% static '/home/reg.jpg'%}');">
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="reg-box">
+        <a class="navbar-brand"  href="{% url 'index' %}"><img style="width:50%;height:50px;margin-left:85px;margin-bottom:20px;margin-top:-50px;" src="{% static '/home/AgriGrow.svg' %}" alt="My image"></a>
+    {{form.as_p}}
+    <input type="submit" value="Register">
+        <p>
+            <a href="{% url 'login' %}">Already have an account ! Login Here..</a>
+        </p>
+        </div>
+</form>
+</body>
+{% endblock %}
