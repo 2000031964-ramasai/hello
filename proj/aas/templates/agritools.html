@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+section.s1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+   border-style: ridge;
+   margin-left:50px;
+   margin-right:50px;
+    margin-top:100px;
+	min-height:100vh;
+	background: #89ABE3FF;
+	border-radius:20px;
+}
+
+section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+}
+
+section::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+}
+
+.contain1 {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 40px 0;
+}
+
+.contain1 .card {
+	position: relative;
+	width: 300px;
+	height: 400px;
+    background: #FFF;
+	margin: 20px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+	border-radius: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(10px);
+}
+
+.contain1 .card .content1 {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	transition: 0.5s;
+}
+
+.contain1 .card:hover .content1 {
+	transform: translateY(-20px);
+}
+
+.contain1 .card .content1 .imgBx {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+}
+
+.contain1 .card .content1 .imgBx img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.contain1 .card .content1 .contentBx h3 {
+	color: #000;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 500;
+	font-size: 18px;
+	text-align: center;
+	margin: 20px 0 10px;
+	line-height: 1.1em;
+}
+
+.contain1 .card .content1 .contentBx h3 span {
+	font-size: 12px;
+	font-weight: 300;
+	text-transform: initial;
+}
+
+</style>
+</head>
+<body class="cd2">
+	<section class="s1">
+		<div class="contain1">
+			<a href="{% url 'agritools' %}" style="text-decoration:none;"><div class="card">
+				<div class="content1">
+					<div class="imgBx">
+						<img src="https://i.4pcdn.org/pol/1540854351732.png">
+					</div>
+					<div class="contentBx">
+						<h3>Agriculture Tools<br></h3>
+					</div>
+				</div>
+
+			</div>
+            </a>
+			<div class="contain1">
+			<a href="{% url 'about' %}" style="text-decoration:none;"><div class="card">
+				<div class="content1">
+					<div class="imgBx">
+						<img src="https://ic.recreationid.com/camco/items/41944_6.jpg">
+					</div>
+					<div class="contentBx">
+						<h3>Aquaculture Tools<br></h3>
+					</div>
+				</div>
+
+			</div>
+            </a>
+            </div>
+        </div>
+	</section>
+</body>
+{% endblock %}

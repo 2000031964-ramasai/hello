@@ -1,7 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from translate import Translator
-from MySQLdb import*
+from django.conf import settings
+from django.contrib.auth.backends import BaseBackend
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.models import User
+
 from .forms import *
 
 
@@ -45,3 +49,19 @@ def register(request):
 
 def services(request):
     return render(request, 'services.html')
+
+
+def agritools(request):
+    return render(request, 'agritools.html')
+
+def profile(request):
+
+    if request.method=="POST":
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ProfileForm()
+    return render(request, 'profile.html',{'title':'Profile','form':form})
+
