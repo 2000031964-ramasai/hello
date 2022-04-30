@@ -79,6 +79,11 @@ div.pro-box{
     <div class="pro-box">
         <a class="navbar-brand"  href="{% url 'index' %}"><img style="width:50%;height:50px;margin-left:85px;margin-bottom:20px;margin-top:-50px;" src="{% static '/home/AgriGrow.svg' %}" alt="My image"></a>
     {{form.as_p}}
+        {% for stu in body %}
+<h1>{{stu.user}}</h1><br>
+
+
+{% endfor %}
     <button type="submit">Submit</button>
 
         </div>

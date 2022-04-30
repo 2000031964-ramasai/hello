@@ -19,6 +19,9 @@ RABI = [("WHEAT", 'wheat'),
 LOAN = [("YES", 'yes'),
         ("NO", 'no'),
         ]
+CATEGORY = [("AGRICULTURE", 'agriculture'),
+            ("AQUACULTURE", 'aquaculture')
+            ]
 
 
 # Create your models here.
@@ -56,3 +59,25 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Tools(models.Model):
+    tcode = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=32)
+    category = models.CharField(max_length=20, choices=CATEGORY)
+    quantity = models.IntegerField()
+    price = models.FloatField()
+
+    def __str__(self):
+        return self.name
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=32)
+    email = models.EmailField(max_length=120)
+    phone = models.CharField(max_length=12)
+    message = models.TextField(max_length=500)
+
+    def __str__(self):
+        return self.name
+

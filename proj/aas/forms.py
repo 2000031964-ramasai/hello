@@ -1,6 +1,7 @@
 from django import forms
 from .models import Register
 from .models import Profile
+from .models import Contact
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -25,3 +26,11 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ['name', 'age', 'gender', 'acres', 'kharif', 'rabi', 'loan']
         models = {'name': 'Name', 'age': 'Age', 'gender': 'Gender', 'kharif': 'Kharif', 'rabi': 'Rabi', 'loan': 'Loan'}
+
+
+class ContactForm(forms.ModelForm):
+
+
+    class Meta:
+        model = Contact
+        fields = ['name', 'email','phone','message']
