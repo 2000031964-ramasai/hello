@@ -1,15 +1,15 @@
 from django import forms
 from .models import Register
 from .models import Profile
+from django.forms import ModelForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
-class RegisterForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-    confirmation = forms.CharField(widget=forms.PasswordInput)
-
+class RegisterForm(UserCreationForm):
     class Meta:
-        model = Register
-        fields = ['username', 'password', 'confirmation', 'phoneno', 'email', 'address']
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
 
 
 class LoginForm(forms.ModelForm):

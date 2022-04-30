@@ -11821,8 +11821,16 @@ header.masthead .masthead-heading {
                         <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+
+
+                        {% if request.user.is_authenticated %}
+
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                         <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                            {% endif %}
+
 
 
 
@@ -11847,7 +11855,7 @@ header.masthead .masthead-heading {
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
-                        <a href="{% url 'about' %}"><span class="fa-stack fa-4x">
+                        <a href="{% url 'services' %}"><span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                         </span></a>
@@ -11855,7 +11863,7 @@ header.masthead .masthead-heading {
                         <p class="text-muted">Click on the tools to use the different tools.</p>
                     </div>
                     <div class="col-md-4">
-                        <a href="{% url 'about' %}"><span class="fa-stack fa-4x">
+                        <a href="{% url 'services' %}"><span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                         </span></a>
