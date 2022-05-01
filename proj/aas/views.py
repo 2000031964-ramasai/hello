@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from django.views.generic import View
 import urllib.request
 import json
 from django.core.mail import send_mail, BadHeaderError
@@ -8,7 +10,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
-
 
 # from .filters import OrderFilter
 
@@ -28,17 +29,17 @@ def contact(request):
                 'name': form.cleaned_data['name'],
                 'email': form.cleaned_data['email'],
                 'phone': form.cleaned_data['phone'],
-                'message':form.cleaned_data['message'],
+                'message': form.cleaned_data['message'],
 
             }
             message = "\n".join(body.values())
 
             try:
-                send_mail(subject,message,'agriaquagrow@gmail',['agriaquagrow@gmail'])
+                send_mail(subject, message, 'agriaquagrow@gmail', ['agriaquagrow@gmail'])
             except BadHeaderError:
                 return redirect('index')
     form = ContactForm()
-    return render(request, 'contact.html',{'form':form})
+    return render(request, 'contact.html', {'form': form})
 
 
 def about(request):
@@ -88,6 +89,7 @@ def registerPage(request):
 def services(request):
     return render(request, 'services.html')
 
+
 @login_required(login_url='login')
 def agritools(request):
     return render(request, 'agritools.html')
@@ -96,7 +98,6 @@ def agritools(request):
 def logoutUser(request):
     logout(request)
     return redirect('index')
-
 
 
 @login_required(login_url='login')
@@ -144,3 +145,33 @@ def weather(request):
         }
     print(data['weather_icon'])
     return render(request, 'weather.html', {"city": city, "data": data})
+
+
+class Statistics(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'statistics.html')
+
+
+
+class ChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        labels = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July'
+        ]
+        chartLabel = "my data"
+        chartdata = [0, 10, 5, 2, 20, 30, 45]
+        data = {
+            "labels": labels,
+            "chartLabel": chartLabel,
+            "chartdata": chartdata,
+        }
+        return Response(data)

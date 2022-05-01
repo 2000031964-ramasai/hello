@@ -12,5 +12,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('logout/',views.logoutUser,name='logout'),
     path('home/', views.home, name='home'),
-    path('statistics/', views.weather, name='weather'),
+    path('weather/', views.weather, name='weather'),
+    path('statistics/', views.Statistics.as_view()),
+    path('api', views.ChartData.as_view()),
 ]
