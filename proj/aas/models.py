@@ -81,3 +81,12 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+class Seeds(models.Model):
+    seeds_id = models.IntegerField(primary_key=True)
+    s_name = models.CharField(max_length=32)
+    s_category = models.CharField(max_length=20, choices=CATEGORY)
+    s_quantity = models.IntegerField()
+    s_price = models.FloatField()
+
+    def __str__(self):
+        return self.s_name
