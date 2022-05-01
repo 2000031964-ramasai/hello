@@ -115,7 +115,7 @@ def home(request):
     return render(request, 'aflogin.html')
 
 
-def statistics(request):
+def weather(request):
     if request.method == 'POST':
         city = request.POST.get('city')
         # print(city)
@@ -143,4 +143,4 @@ def statistics(request):
             "weather_icon": None,
         }
     print(data['weather_icon'])
-    return render(request, 'statistics.html', {"city": city, "data": data})
+    return render(request, 'weather.html', {"city": city, "data": data})
